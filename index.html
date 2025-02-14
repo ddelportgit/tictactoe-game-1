@@ -10,6 +10,44 @@
   <body>
     <div id="game-container">
       <h1>Tic Tac Toe</h1>
+      <div id="scoreboard">
+        <h2>Scoreboard</h2>
+        <div class="score-numbers">
+          <p>X: <span id="x-score">0</span></p>
+          <p>O: <span id="o-score">0</span></p>
+        </div>
+      </div>
+
+      <div id="show-instructions" class="button">Show instructions</div>
+
+      <div id="theme-selector" class="button">
+        <label for="themes">Choose a theme:</label>
+        <select id="themes">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+          <option value="retro">Retro</option>
+        </select>
+      </div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="close-instructions">&times;</span>
+          <h2>How to play</h2>
+          <p>
+            Tic Tac Toe is a two-player game where players take turns marking a cell in a 3x3 grid.
+          </p>
+          <p>
+            The first player to get three of their marks in a row (horizontally, vertically, or
+            diagonally) wins the game.
+          </p>
+          <p>
+            If all nine cells are filled and no player has three in a row, the game ends in a draw.
+          </p>
+        </div>
+      </div>
+
       <div id="cell-container">
         <div cellIndex="0" class="cell"></div>
         <div cellIndex="1" class="cell"></div>
@@ -22,7 +60,7 @@
         <div cellIndex="8" class="cell"></div>
       </div>
       <h2 id="status-text"></h2>
-      <button id="restart-button">Restart</button>
+      <div class="button" id="restart-button">Restart</div>
     </div>
   </body>
 </html>

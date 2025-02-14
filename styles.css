@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .cell {
   width: 75px;
   height: 75px;
@@ -6,11 +12,24 @@
   line-height: 75px;
   font-size: 50px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 #game-container {
+  position: relative;
   font-family: "Permanent Marker", cursive;
   text-align: center;
+  height: 100vh;
+}
+
+#game-container h1 {
+  margin-top: 0;
+  padding-top: 20px;
 }
 
 #cell-container {
@@ -18,4 +37,276 @@
   grid-template-columns: repeat(3, auto);
   width: 225px;
   margin: auto;
+}
+
+#scoreboard {
+  font-size: 20px;
+}
+
+#scoreboard h2 {
+  margin: 0;
+}
+
+.score-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#scoreboard p {
+  border: 2px solid #000;
+  padding: 10px;
+  width: 150px;
+}
+
+#restart-button {
+  margin: 0 auto;
+}
+
+/* ADDITIONAL FUNCTIONS */
+
+.x-cell:hover {
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+.o-cell:hover {
+  background-color: rgba(0, 0, 255, 0.25);
+}
+
+.winning-cell {
+  background-color: rgba(0, 255, 34, 0.5);
+}
+
+/* INSTRUCTIONS */
+
+.button {
+  text-align: center;
+  width: 150px;
+  border: 2px solid #000;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: none;
+}
+
+#show-instructions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.show-modal {
+  display: block;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+#theme-selector {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 250px;
+}
+
+#themes {
+  border: 2px solid;
+}
+
+/* THEMES */
+
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-theme .cell {
+  border-color: #000;
+}
+
+.light-theme .button {
+  border-color: #000;
+}
+
+.light-theme #scoreboard p {
+  border-color: #000;
+}
+
+.light-theme #themes {
+  border-color: #000;
+  background-color: #ffffff;
+  color: #000;
+  margin-left: 10px;
+  width: 4rem;
+}
+
+.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark-theme .cell {
+  border-color: #fff;
+}
+
+.dark-theme .button {
+  border-color: #fff;
+}
+
+.dark-theme #scoreboard p {
+  border-color: #fff;
+}
+
+.dark-theme #themes {
+  border-color: #fff;
+  background-color: #333333;
+  color: #fff;
+  margin-left: 10px;
+  width: 4rem;
+}
+
+.ocean-theme {
+  background-color: #e0f7fa;
+  color: #006064;
+}
+
+.ocean-theme .cell {
+  border-color: #006064;
+}
+
+.ocean-theme .button {
+  border-color: #006064;
+}
+
+.ocean-theme #scoreboard p {
+  border-color: #006064;
+}
+
+.ocean-theme #themes {
+  border-color: #006064;
+  background-color: #e0f7fa;
+  color: #006064;
+  margin-left: 10px;
+  width: 4rem;
+}
+
+.forest-theme {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+.forest-theme .cell {
+  border-color: #1b5e20;
+}
+
+.forest-theme .button {
+  border-color: #1b5e20;
+}
+
+.forest-theme #scoreboard p {
+  border-color: #1b5e20;
+}
+
+.forest-theme #themes {
+  border-color: #1b5e20;
+  background-color: #e8f5e9;
+  color: #1b5e20;
+  margin-left: 10px;
+  width: 4rem;
+}
+
+.retro-theme {
+  background-color: #ffeb3b;
+  color: #d50000;
+}
+
+.retro-theme .cell {
+  border-color: #d50000;
+}
+
+.retro-theme .button {
+  border-color: #d50000;
+}
+
+.retro-theme #scoreboard p {
+  border-color: #d50000;
+}
+
+.retro-theme #themes {
+  border-color: #d50000;
+  background-color: #ffeb3b;
+  color: #d50000;
+  margin-left: 10px;
+  width: 4rem;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 600px) {
+  #game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+
+  #show-instructions {
+    position: initial;
+    margin: 10px 0;
+    align-self: center;
+    padding: 5px;
+  }
+
+  #status-text {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  #theme-selector {
+    position: initial;
+    margin: 10px 0;
+    align-self: center;
+    padding: 5px;
+  }
+
+  #restart-button {
+    align-self: center;
+  }
+
+  #restart-button {
+    margin-bottom: 15px;
+  }
+
+  .score-numbers {
+    margin: 0 15px;
+  }
 }
